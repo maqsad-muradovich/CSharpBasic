@@ -11,3 +11,9 @@
 
 ###### Demanstration
 ![alt text](Calculator/demanstration.gif)
+
+## Prime Number
+##### Bu kod foydalanuvchining kiritgan sonning tub son ekanligini tekshiradi. Agar kiritilgan son faqat 1 va o'ziga bo'linishi mumkin bo'lsa, u tub son hisoblanadi. Aks holda, u tub son emas deyiladi.
+
+###### Demanstration
+![alt text](PrimeNumber/demanstration.gif)
