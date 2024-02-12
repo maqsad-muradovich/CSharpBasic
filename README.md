@@ -5,3 +5,9 @@
 
 ###### Demanstration
 ![alt text](GeometryGuru/demanstration.gif)
+
+## Calculator
+##### Bu kod foydalanuvchining kiritgan ikki son orasida kiritilgan amalni bajaradi va natijani ekranga chiqaradi. Agar amal bo'lish ("+") amalni kiritilgan sonlarni qo'shadi, ayirma ("-") amal kiritilgan sonlarni ayiradi, ko'paytirish ("*") amal kiritilgan sonlarni ko'paytiradi va bo'lish ("/") amal kiritilgan sonlarni bo'lishini hisoblaydi. Agar bo'linadigan son nolga teng bo'lsa, dastur "Xato: 0 ga bo'lib bo'linmadi!" deb chiqaradi.
+
+###### Demanstration
+![alt text](Calculator/demanstration.gif)
