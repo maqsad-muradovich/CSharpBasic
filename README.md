@@ -17,3 +17,9 @@
 
 ###### Demanstration
 ![alt text](PrimeNumber/demanstration.gif)
+
+## Fibonacci Number
+##### Bu kod foydalanuvchi tomonidan kiritilgan soncha Fibonacci ketma-ketlikning birinchi sonlarini ekranga chiqaradi. Foydalanuvchi kiritgan soncha sonlar ko'rsatiladi. Fibonacci ketma-ketlikning birinchi soni 0 deb e'lon qilinadi, ikkinchi esa 1. Dastur kiritilgan soncha sonlarni hisoblab, ularni ekranga chiqaradi.
+
+###### Demanstration
+![alt text](FibonacciNumbers/demanstration.gif)
