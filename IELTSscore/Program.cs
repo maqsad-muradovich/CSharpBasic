@@ -1,33 +1,30 @@
-﻿decimal[] ieltsScore = new decimal[4];
+﻿System.Console.Write("Listening: ");
+string listeningScoreInput = Console.ReadLine()!;
 
-Console.Write("Speaking: ");
-ieltsScore[0] = Convert.ToDecimal(Console.ReadLine());
+System.Console.Write("Reading: ");
+string readingScoreInput = Console.ReadLine()!;
 
-Console.Write("Reading: ");
-ieltsScore[1] = Convert.ToDecimal(Console.ReadLine());
+System.Console.Write("Speaking: ");
+string speakingScoreInput = Console.ReadLine()!;
 
-Console.Write("Listening: ");
-ieltsScore[2] = Convert.ToDecimal(Console.ReadLine());
+System.Console.Write("Writing: ");
 
-Console.Write("Writing: ");
-ieltsScore[3] = Convert.ToDecimal(Console.ReadLine());
-
-decimal averageScore = ieltsScore.Avarge();
-decimal remainder = averageScore - (int)averageScore
-
-switch (remainder)
+string writingScoreInput = Console.ReadLine()!;
+decimal[] scores={
+    Convert.ToDecimal(readingScoreInput),
+    Convert.ToDecimal(listeningScoreInput),
+    Convert.ToDecimal(writingScoreInput),
+    Convert.ToDecimal(speakingScoreInput)
+    };
+decimal averageScore = scores.Average();
+decimal remainder = averageScore-(int)averageScore;
+remainder = remainder switch
 {
-    case decimal r when r < 0.25m:
-        remainder = 0;
-        break;
-    case decimal r when r < 0.75m:
-        remainder = 0.5m;
-        break;
-    default:
-        remainder = 1;
-        break;
-}
+    _ when remainder < 0.25m => 0,
+    _ when remainder < 0.75m => 0.5m,
+    _ => 1,
+};
 
-averageScore = (int)averageScore + remainder;
+averageScore=(int)averageScore+remainder;
 
-Console.WriteLine($"Average score: {averageScore}");
+Console.WriteLine($"Avreage score: {averageScore}");
