@@ -23,3 +23,9 @@
 
 ###### Demanstration
 ![alt text](FibonacciNumbers/demanstration.gif)
+
+## IELSTSscore
+##### Bu kod foydalanuvchi tomonidan kiritilgan IELTS (Ixtisosiy Ingliz Tili Testi) bo'limlari uchun o'rtacha baho va qoldiqni hisoblaydi va "Average score" degan nom bilan konsolga chiqaradi. Foydalanuvchi "Listening", "Reading", "Speaking" va "Writing" bo'lim
+
+###### Demanstration
+![alt text](<IELTSscore/2024-02-14 19-23-19 (online-video-cutter.com).gif>)
