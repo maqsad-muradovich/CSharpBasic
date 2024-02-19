@@ -18,7 +18,7 @@ bool IsLetterExists(char letter, string word)
 
 int countTry = 1;
 int userScore = 100;
-string[] words = { "Malika", "Aziz", "Sardor", "Jasur", "Sarvar" };
+string[] words = { "Malika", "Aziz", "Sardor", "Jasur", "Sarvar"};
 string randomWord = GetRandomWord(words);
 string secretWord = "";
 string UserInput = "";
@@ -27,9 +27,6 @@ for (int i = 0; i < randomWord.Length; i++)
 {
     secretWord += '*';
 }
-
-Console.WriteLine(secretWord);
-
 
 Console.WriteLine("Assalomu aleykum hurmatli ishtirokchi,\n" +
                  "'Quiz Game' oyniga xush kelibsiz, oyin qoydalari bilan tanishtirsam)\n" +
@@ -44,9 +41,12 @@ while (userScore)
 
     if (UserInput != "!!!")
     {
-        if (char.IsLetter(UserInput[0], randomWord)
+        if (char.IsLetter(UserInput[0]))
         {
-            Console.WriteLine("")
+            if (IsLetterExists(UserInput[0], randomWord))
+            {
+                
+            }
         }
         else
         {
