@@ -29,3 +29,14 @@
 
 ###### Demanstration
 ![alt text](<IELTSscore/2024-02-14 19-23-19 (online-video-cutter.com).gif>)
+
+## Quiz Game
+##### Bu dastur "Quiz Game" o'yini uchun bir kodni ifodalaydi. Bu o'yin foydalanuvchining bir so'zni topish uchun urinishlarini qabul qiladi va unga baholar beradi. Quyidagi funksiyalar mavjud:
+
+- `GetRandomWord`: Berilgan so'zlardan tasodifiy birini tanlaydi.
+- `IsLetterExists`: Belgi berilgan so'zda mavjud bo'lsa `true` qaytaradi.
+
+##### O'yin o'z ichiga olgan qulay va oson tushunchalar bilan foydalanuvchini boshqarishga imkon beradi.
+
+###### Demanstration
+![alt text](<QuizGame/2024-02-14 19-23-19 (online-video-cutter.com).gif>)
