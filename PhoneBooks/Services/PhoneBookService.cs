@@ -22,8 +22,6 @@ namespace PhoneBook.Crud.Services
             {
                 writer.WriteLine(line);
             }
-
-            Console.WriteLine("Foydalanuvchi qo'shildi.");
         }
 
         private int GetNextId()
@@ -90,7 +88,6 @@ namespace PhoneBook.Crud.Services
             using (StreamReader reader = new StreamReader(_filePath))
             {
                 string line;
-                bool found = false;
                 while ((line = reader.ReadLine()) != null)
                 {
                     string[] parts = line.Split(',');
@@ -101,12 +98,6 @@ namespace PhoneBook.Crud.Services
                     }
 
                     updatedLines.Add(line);
-                }
-
-                if (!found)
-                {
-                    Console.WriteLine($"{id} identifikatorli foydalanuvchi topilmadi.");
-                    return;
                 }
             }
 
