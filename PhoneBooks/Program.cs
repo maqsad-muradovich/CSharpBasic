@@ -37,12 +37,12 @@ namespace PhoneBook.Crud
                         break;
                     case "3":
                         Console.Write("ID ni kiriting: ");
-                        int id = Convert.ToInt32(Console.Readline());
+                        int id = Convert.ToInt32(Console.ReadLine());
                         phoneBookService.ReadById(id);
                         break;
                     case "4":
                         Console.Write("ID ni kiriting: ");
-                        int deleteId = Convert.ToInt32(Console.Readline());;
+                        int deleteId = Convert.ToInt32(Console.ReadLine());;
                         phoneBookService.DeletePhoneBookById(deleteId);
                         break;
                     case "5":

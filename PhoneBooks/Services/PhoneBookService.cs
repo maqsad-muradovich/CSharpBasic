@@ -1,98 +1,118 @@
 using System;
-using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.Generic;
+
 using PhoneBook.Crud.Models;
 
 namespace PhoneBook.Crud.Services
 {
     internal class PhoneBookService
     {
-        public PhoneBookModel[] PhoneBooks { get; set; } = new PhoneBookModel[10];
-
-        public PhoneBookService()
-        {
-            PhoneBooks[0] = new PhoneBookModel
-            {
-                Id = 1,
-                Name = "Maqsad",
-                Phone = "1234567890"
-            };
-            
-            PhoneBooks[1] = new PhoneBookModel
-            {
-                Id = 2,
-                Name = "Nurhissa",
-                Phone = "1234567891"
-            };
-            
-            PhoneBooks[2] = new PhoneBookModel
-            {
-                Id = 3,
-                Name = "Sanjar",
-                Phone = "1234567892"
-            };
-        }
+        private readonly string _filePath = "file.txt";
 
         public void Create(string nameinput, string phoneinput)
         {
-            int nextId = PhoneBooks.Count(p => p != null);
+            int nextId = GetNextId();
+            string line = $"{nextId},{nameinput},{phoneinput}";
 
-            if (nextId >= PhoneBooks.Length)
+            using (StreamWriter writer = File.AppendText(_filePath))
             {
-                Console.WriteLine("Yangi yozuv qoshib bolmadi. Massiv allaqachon tolgan.");
-                return;
+                writer.WriteLine(line);
             }
 
-            PhoneBooks[nextId] = new PhoneBookModel
+            Console.WriteLine("Foydalanuvchi qo'shildi.");
+        }
+
+        private int GetNextId()
+        {
+            int nextId = 1;
+            using (StreamReader reader = new StreamReader(_filePath))
             {
-                Id = nextId+1,
-                Name = nameinput,
-                Phone = phoneinput
-            };
+                string lastLine = null;
+                while (!reader.EndOfStream)
+                {
+                    lastLine = reader.ReadLine();
+                }
+
+                if (lastLine != null)
+                {
+                    string[] parts = lastLine.Split(',');
+                    if (parts.Length > 0 && int.TryParse(parts[0], out nextId))
+                    {
+                        nextId++;
+                    }
+                }
+            }
+
+            return nextId;
         }
 
         public void ReadAllPhoneBooks()
         {
-            for (int iteration = 0; iteration < PhoneBooks.Length; iteration++)
+            using (StreamReader reader = new StreamReader(_filePath))
             {
-                PhoneBookModel phoneBook = PhoneBooks[iteration];
-
-                if (phoneBook is not null)
+                string lastLine = null;
+                while (!reader.EndOfStream)
                 {
-                    Console.WriteLine($"{phoneBook.Id} - {phoneBook.Name} {phoneBook.Phone}");
+                    lastLine = reader.ReadLine();
+                    Console.WriteLine(lastLine);
                 }
             }
         }
 
         public void ReadById(int inputid)
         {
-            for (int iteration = 0; iteration < PhoneBooks.Length; iteration++)
+            using (StreamReader reader = new StreamReader(_filePath))
             {
-                PhoneBookModel phoneBook = PhoneBooks[iteration];
-
-                if (phoneBook is not null && phoneBook.Id == inputid)
+                string lastLine = null;
+                while (!reader.EndOfStream)
                 {
-                    Console.WriteLine($"{phoneBook.Id} - {phoneBook.Name} {phoneBook.Phone}");
-                    return;
+                    lastLine = reader.ReadLine();
+                    if (lastLine != null)
+                    {
+                        string[] parts = lastLine.Split(',');
+                        if (Convert.ToInt32(parts[0]) == inputid)
+                        {
+                            Console.WriteLine(lastLine);
+                        }
+                    }
                 }
             }
-            Console.WriteLine($"{id} identifikatorli foydalanuvchi topilmadi.");
         }
 
         public void DeletePhoneBookById(int id)
         {
-            for (int i = 0; i < PhoneBooks.Length; i++)
+            List<string> updatedLines = new List<string>();
+
+            using (StreamReader reader = new StreamReader(_filePath))
             {
-                if (PhoneBooks[i] != null && PhoneBooks[i].Id == id)
+                string line;
+                bool found = false;
+                while ((line = reader.ReadLine()) != null)
                 {
-                    PhoneBooks[i] = null;
-                    Console.WriteLine("Foydalanuvci o'chirildi.");
+                    string[] parts = line.Split(',');
+                    if (parts.Length > 0 && int.TryParse(parts[0], out int currentId) && currentId == id)
+                    {
+                        found = true;
+                        continue;
+                    }
+
+                    updatedLines.Add(line);
+                }
+
+                if (!found)
+                {
+                    Console.WriteLine($"{id} identifikatorli foydalanuvchi topilmadi.");
                     return;
                 }
             }
-            Console.WriteLine($"{id} identifikatorli foydalanuvchi topilmadi.");
+
+            File.WriteAllLines(_filePath, updatedLines);
+            Console.WriteLine("Foydalanuvchi o'chirildi.");
         }
+
     }
 }
