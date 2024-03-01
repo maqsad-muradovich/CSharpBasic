@@ -93,7 +93,6 @@ namespace PhoneBook.Crud.Services
                     string[] parts = line.Split(',');
                     if (parts.Length > 0 && int.TryParse(parts[0], out int currentId) && currentId == id)
                     {
-                        found = true;
                         continue;
                     }
 

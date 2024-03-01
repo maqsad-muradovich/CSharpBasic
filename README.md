@@ -40,3 +40,26 @@
 
 ###### Demanstration
 ![alt text](<QuizGame/2024-02-14 19-23-19 (online-video-cutter.com).gif>)
+
+
+## PhoneBooks
+##### Dasturning tizimini fayllar orqali o'zgartirishga o'girishingiz uchun `PhoneBookService` klassiga faylni o'qish, yozish va o'chirish uchun kerakli funksiyalarni qo'shdingiz. Bu fayl "file.txt" nomli faylga ma'lumotlarni saqlash uchun ishlatiladi. 
+##### `Create` metod foydalanuvchidan ism va telefon raqamini qabul qilib, faylga yangi ma'lumot qo'shadi. 
+
+##### `GetNextId` metodi avvalgi eng yuqori ID-ni olish uchun faylni o'qib chiqaradi va keyingi ID-ni aniqlaydi.
+
+##### `ReadAllPhoneBooks` metod faylni o'qib chiqaradi va barcha ma'lumotlarni konsolga chiqaradi.
+
+##### `ReadById` metod foydalanuvchidan kiritilgan ID bo'yicha ma'lumotni topib uni konsolga chiqaradi.
+
+##### `DeletePhoneBookById` metod foydalanuvchidan kiritilgan ID bo'yicha ma'lumotni fayldan o'chiradi.
+
+##### Faylning formati quyidagicha: 
+```
+ID,Name,Phone
+```
+##### har bir qator bir ma'lumotni ifodalaydi. 
+
+##### Bu shakl foydalanuvchilar ma'lumotlarini saqlash va uni o'qishning oddiy usulini ta'minlaydi.
+
+###### Demanstration
